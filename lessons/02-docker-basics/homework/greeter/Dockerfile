@@ -2,10 +2,10 @@
 FROM python:3.11-slim
 
 # העתקת קובץ התלויות לפני הקוד, כדי ששלב ההתקנה יישמר ב-cache
-COPY app.py
+COPY requirements.txt
 
 # התקנת התלויות ללא שמירת קבצי התקנה זמניים
-RUN pip install --no-cache-dir -r app.py
+RUN pip install --no-cache-dir -r requirements.txt
 
 # העתקת קוד השרת לתוך ה-image
 COPY app.py .
