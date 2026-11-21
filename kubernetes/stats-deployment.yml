@@ -19,7 +19,10 @@ spec:
           imagePullPolicy: Never
           env:
             - name: BACKEND_URL
-              value: http://backend:5000
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: BACKEND_URL
           ports:
             - containerPort: 3000
           readinessProbe:
