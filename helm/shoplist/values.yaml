@@ -1,0 +1,18 @@
+backend:
+  replicas: 2
+  image: shoplist-backend:local
+  imagePullPolicy: Never
+  containerPort: 5000
+
+frontend:
+  replicas: 1
+  image: shoplist-frontend:local
+  imagePullPolicy: Never
+  containerPort: 80
+  nodePort: 30080
+
+stats:
+  replicas: 1
+  image: shoplist-stats:local
+  imagePullPolicy: Never
+  containerPort: 3000
