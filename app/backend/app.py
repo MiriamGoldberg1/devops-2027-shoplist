@@ -8,7 +8,7 @@ CATEGORIES = ['Produce', 'Dairy', 'Bakery', 'Pantry', 'Household', 'Other']
 COLUMNS = 'id, name, price, quantity, category, bought'
 
 
-def get_db():
+def get_db()
     return psycopg2.connect(
         host=os.environ['DB_HOST'],
         database=os.environ['DB_NAME'],
