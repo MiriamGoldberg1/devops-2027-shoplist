@@ -4,6 +4,7 @@ name: ShopList CI
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -54,3 +55,6 @@ jobs:
           docker build -t $IMAGE:$TAG -t $IMAGE:latest ./app/${{ matrix.service }}
           docker push $IMAGE:$TAG
           docker push $IMAGE:latest
+
+      - name: Summary
+        run: echo "Pushed $IMAGE:$TAG" >> "$GITHUB_STEP_SUMMARY"
